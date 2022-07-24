@@ -19,6 +19,10 @@
   .top-btn:hover {
     color: hsl(220, 13%, 13%);
   }
+
+  .thumb-img:hover {
+    filter: opacity(75%);
+  }
 }
 
 .hover-underline-animation {
@@ -157,6 +161,11 @@ hr {
 
 .selected {
   /* border: 3px solid var(--orange); */
-  outline: 1px solid white;
-  outline-offset: -4px;
+  outline: 3px solid var(--orange);
+  outline-offset: -2px;
+  filter: opacity(50%);
+}
+
+.hover-disabled {
+    pointer-events: none;
 }

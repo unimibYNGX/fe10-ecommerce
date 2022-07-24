@@ -1,22 +1,13 @@
 function select(n) {
   if (n != null) {
     var arr = document.getElementsByClassName("thumb-img");
-    // for(let i = 0; i < arr.length; i++) {
-    //     if(arr[i].classList.contains("selected")){
-    //         if(i!=n)
-    //         {
-    //             arr[i].classList.remove("selected")
-    //             arr[n-1].classList.add("selected")
-    //             return true
-    //         }
-    //     }
-    // }
-    var currentPos = getPos("selected", arr)
-    console.log("current: " + currentPos + ", n: " + n)
-    if (currentPos != n) {
-      arr[currentPos].classList.remove("selected");
-      arr[n-1].classList.add("selected");
+    for(let i = 0; i < arr.length; i++) {
+        arr[i].classList.remove("selected")
+        arr[i].classList.remove("hover-disabled")
     }
+    arr[n].classList.add("selected")
+    arr[n].classList.add("hover-disabled")
+    showMain(n)
   }
   return false;
 }
@@ -26,4 +17,12 @@ function getPos(attribute, arr) {
     if (arr[i].classList.contains(attribute)) return i;
   }
   return -1;
+}
+
+function showMain(n) {
+    if(n!=null) {
+        var image = document.getElementById('main-img')
+        var pos = n+1
+        image.src = 'images/images-main/image-product-' + pos + '.jpg'
+    }
 }
