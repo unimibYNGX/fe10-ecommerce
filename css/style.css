@@ -7,7 +7,7 @@
   --grayish-blue: hsl(220, 14%, 75%);
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%); /*with 75% opacity for lightblox background)*/
+  --black: hsl(0, 0%, 0%); /*with 75% opacity for lightbox background)*/
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -48,22 +48,31 @@
   transition: 0.15s ease;
 }
 
-main {
+html {
+  /* min-height: 100%; */
+  /* width: 100vw; */
+}
+
+.main {
   margin: auto;
   width: 80vw;
-  height: inherit;
+  height: 100%;
 }
 
 body {
   margin: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  /* height: 100vh; */
+  height: auto;
+  /* min-height: 100%; */
 }
 
 .attribution {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: var(--pale-orange);
   margin-top: 20px;
   position: absolute;
-  /* bottom: 0; */
   width: 100%;
 }
 
@@ -167,5 +176,28 @@ hr {
 }
 
 .hover-disabled {
-    pointer-events: none;
+  pointer-events: none;
+}
+
+/* .lightbox {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, 75%);
+} */
+.lightbox {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.hidden {
+  display: none;
 }
