@@ -23,7 +23,18 @@
   </head>
   <body>
     <div class="lightbox hidden" id="lightbox">
-      <img src="images/images-main/image-product-1.jpg" class="main-img" id="lightbox-img" draggable="false" alt="">
+      <div class="lb-card">
+        <div class="btn div-prev"><img src="images/icon-previous.svg" class="img-prev" alt=""></div>
+        <div class="btn div-next hidden"><img src="images/icon-next.svg" alt=""></div>
+        <div class="div-lb-close"><img src="images/icon-close.svg" class="btn img-lb-close" alt="" onclick="lb_close()"></div>
+        <div class="div-lb-main-img"><img src="images/images-main/image-product-1.jpg" class="main-img lb-main-img" id="lb-img" draggable="false" alt=""></div>
+        <div class="div-thumb-img div-lb-thumb-img" id="div-lb-thumb-img">
+          <div class="white-out"><img src="images/images-thumb/image-product-1-thumbnail.jpg" onclick="lb_select(0)" draggable="false" class="btn lb-thumb-img selected hover-disabled" id="lb-thumb1" alt=""></div>
+          <div class="white-out"><img src="images/images-thumb/image-product-2-thumbnail.jpg" onclick="lb_select(1)" draggable="false" class="btn lb-thumb-img" id="lb-thumb2" alt=""></div>
+          <div class="white-out"><img src="images/images-thumb/image-product-3-thumbnail.jpg" onclick="lb_select(2)" draggable="false" class="btn lb-thumb-img" id="lb-thumb3" alt=""></div>
+          <div class="white-out"><img src="images/images-thumb/image-product-4-thumbnail.jpg" onclick="lb_select(3)" draggable="false" class="btn lb-thumb-img" id="lb-thumb4" alt=""></div>
+        </div>
+      </div>
     </div>
     <div class="main">
       <div class="top">
@@ -40,7 +51,7 @@
       <div class="bottom">
         <div class="bottom-left">
           <div class="btn div-main-img" id="div-main-img">
-            <img src="images/images-main/image-product-1.jpg" class="main-img" id="main-img" draggable="false" alt="">
+            <img src="images/images-main/image-product-1.jpg" class="main-img" id="main-img" onclick="lb_open()" draggable="false" alt="">
           </div>
           <div class="div-thumb-img" id="div-thumb-img">
             <img src="images/images-thumb/image-product-1-thumbnail.jpg" onclick="select(0)" draggable="false" class="btn thumb-img selected hover-disabled" id="thumb1" alt="">
@@ -61,9 +72,9 @@
     </main>
     <div class="attribution">
     Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      <a href="https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub/ecommerce-product-page-1samFOxfRG" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="https://github.com/unimibYNGX/fe10-ecommerce">Yang</a>.
     </div>
 
     <script src="js/yangoLib.js"></script>

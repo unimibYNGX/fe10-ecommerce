@@ -7,25 +7,25 @@ function remove(name, id) {
 }
 
 function show(id) {
-  remove("hide", id);
+  remove("hidden", id);
 }
 
 function hide(id) {
-  add("hide", id);
+  add("hidden", id);
 }
 
 function hideByClass(class_id) {
   var arr = document.getElementsByClassName(class_id);
   for (let i = 0; i < arr.length; i++) {
     const element = arr[i];
-    element.classList.add("hide");
+    element.classList.add("hidden");
   }
 }
 function showByClass(class_id) {
   var arr = document.getElementsByClassName(class_id);
   for (let i = 0; i < arr.length; i++) {
     const element = arr[i];
-    element.classList.remove("hide");
+    element.classList.remove("hidden");
   }
 }
 
@@ -57,13 +57,9 @@ function checkSize(request, query) {
   }
 }
 
-function mobile() {
-  
-}
+function mobile() {}
 
-function desktop() {
-  
-}
+function desktop() {}
 
 window.addEventListener("resize", function (event) {
   checkSize("device", "max-width: 645px");
