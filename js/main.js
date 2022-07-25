@@ -71,6 +71,8 @@ function move(direction) {
       if (pos == array.length - 1) lb_select(0);
       else lb_select(pos + 1);
       break;
+    default:
+      break;
   }
 }
 
