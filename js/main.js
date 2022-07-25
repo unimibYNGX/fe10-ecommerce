@@ -102,4 +102,10 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     lb_close();
   }
+  if (event.key === "ArrowLeft") {
+    move('prev')
+  }
+  if (event.key === "ArrowRight") {
+    move('next')
+  }
 });

@@ -32,6 +32,15 @@
     filter: invert(62%) sepia(21%) saturate(1851%) hue-rotate(335deg)
       brightness(97%) contrast(93%);
   }
+
+  .addtocart:hover {
+    background-color: hsl(26, 100%, 70%);
+  }
+
+  .icon-plus:hover, .icon-minus:hover {
+    filter: opacity(75%);
+
+  }
 }
 
 .hover-underline-animation {
@@ -343,8 +352,8 @@ h1 {
 }
 
 del {
-  color:hsl(220, 14%, 75%)
-} 
+  color: hsl(220, 14%, 75%);
+}
 
 .amount {
   display: flex;
@@ -353,7 +362,7 @@ del {
   padding: 10px;
   padding-top: 13px;
   padding-bottom: 13px;
-  background-color:hsl(223, 64%, 98%);
+  background-color: hsl(223, 64%, 98%);
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -370,16 +379,17 @@ del {
   font-weight: 700;
 }
 .icon-minus {
-  background-color: red;
+  /* background-color: red; */
   padding: 12px 7px 12px 7px;
   width: 10px;
   height: 3px;
 }
 .icon-plus {
-  background-color: red;
+  /* background-color: red; */
   padding: 10px 7px 10px 7px;
 }
-.icon-minus, .icon-plus {
+.icon-minus,
+.icon-plus {
   margin-left: 5px;
   margin-right: 5px;
 }
