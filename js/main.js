@@ -76,6 +76,28 @@ function move(direction) {
   }
 }
 
+function amount(op) {
+  var amount = document.getElementById("amount");
+  var current = parseInt(amount.textContent);
+  console.log(amount + current);
+  switch (op) {
+    case "minus":
+      if (current > 0) {
+        current -= 1;
+        amount.innerHTML = current;
+      }
+      break;
+    case "plus":
+      if (current < Number.MAX_SAFE_INTEGER) {
+        current += 1;
+        amount.innerHTML = current;
+      }
+      break;
+    default:
+      break;
+  }
+}
+
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     lb_close();

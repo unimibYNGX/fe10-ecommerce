@@ -360,16 +360,24 @@ del {
   border-radius: 5px;
   margin-top: 25px;
   margin-right: 10px;
+  height: 30px;
 }
 .n-amount {
+  width: 20px;
   margin-left: 30px;
   margin-right: 30px;
   font-size: 12px;
   font-weight: 700;
 }
 .icon-minus {
+  background-color: red;
+  padding: 12px 7px 12px 7px;
   width: 10px;
   height: 3px;
+}
+.icon-plus {
+  background-color: red;
+  padding: 10px 7px 10px 7px;
 }
 .icon-minus, .icon-plus {
   margin-left: 5px;
@@ -396,6 +404,7 @@ del {
   text-align: center;
   justify-content: center;
   align-items: center;
+  height: 30px;
 }
 .icon-cart {
   filter: brightness(0) invert(1);
