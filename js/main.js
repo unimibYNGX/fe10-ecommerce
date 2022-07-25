@@ -53,9 +53,25 @@ function lb_close() {
 function lb_open() {
   show("lightbox");
   var pos = getPos("selected", document.getElementsByClassName("thumb-img"));
-  console.log(pos);
   lb_showMain(pos);
   lb_select(pos);
+}
+
+function move(direction) {
+  var array = document.getElementsByClassName("lb-thumb-img");
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].classList.contains("selected")) var pos = i;
+  }
+  switch (direction) {
+    case "prev":
+      if (pos == 0) lb_select(array.length - 1);
+      else lb_select(pos - 1);
+      break;
+    case "next":
+      if (pos == array.length - 1) lb_select(0);
+      else lb_select(pos + 1);
+      break;
+  }
 }
 
 document.addEventListener("keydown", function (event) {

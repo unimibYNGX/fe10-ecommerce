@@ -160,6 +160,7 @@ hr {
 
 .btn {
   cursor: pointer;
+  user-select: none;
 }
 
 .bottom {
