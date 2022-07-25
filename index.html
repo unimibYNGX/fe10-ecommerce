@@ -24,8 +24,8 @@
   <body>
     <div class="lightbox hidden" id="lightbox">
       <div class="lb-card">
-        <div class="btn div-prev"><img src="images/icon-previous.svg" class="img-prev" alt=""></div>
-        <div class="btn div-next hidden"><img src="images/icon-next.svg" alt=""></div>
+        <div class="btn div-prev" onclick="move(prev)"><img src="images/icon-previous.svg" class="img-prev" alt=""></div>
+        <div class="btn div-next" onclick="move(next)"><img src="images/icon-next.svg" class="img-next" alt=""></div>
         <div class="div-lb-close"><img src="images/icon-close.svg" class="btn img-lb-close" alt="" onclick="lb_close()"></div>
         <div class="div-lb-main-img"><img src="images/images-main/image-product-1.jpg" class="main-img lb-main-img" id="lb-img" draggable="false" alt=""></div>
         <div class="div-thumb-img div-lb-thumb-img" id="div-lb-thumb-img">
@@ -69,13 +69,13 @@
         </div>
       </div>
 
+      <div class="attribution">
+      Challenge by
+        <a href="https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub/ecommerce-product-page-1samFOxfRG" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://github.com/unimibYNGX/fe10-ecommerce">Yang</a>.
+      </div>
     </main>
-    <div class="attribution">
-    Challenge by
-      <a href="https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub/ecommerce-product-page-1samFOxfRG" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="https://github.com/unimibYNGX/fe10-ecommerce">Yang</a>.
-    </div>
 
     <script src="js/yangoLib.js"></script>
     <script src="js/main.js"></script>
