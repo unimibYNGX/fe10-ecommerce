@@ -24,7 +24,9 @@
   <body>
     <div class="lightbox hidden" id="lightbox">
       <div class="lb-card">
-        <div class="btn div-prev" onclick="move('prev')"><img src="images/icon-previous.svg" class="img-prev" alt=""></div>
+        <div class="btn div-prev" onclick="move('prev')">
+          <img src="images/icon-previous.svg" class="img-prev" alt="">
+        </div>
         <div class="btn div-next" onclick="move('next')"><img src="images/icon-next.svg" class="img-next" alt=""></div>
         <div class="div-lb-close"><img src="images/icon-close.svg" class="btn img-lb-close" alt="" onclick="lb_close()"></div>
         <div class="div-lb-main-img"><img src="images/images-main/image-product-1.jpg" class="main-img lb-main-img" id="lb-img" draggable="false" alt=""></div>
@@ -45,6 +47,18 @@
           <div class="btn top-btn hover-underline-animation">Women</div>
           <div class="btn top-btn hover-underline-animation">About</div>
           <div class="btn top-btn hover-underline-animation">Contact</div>
+          <div class="top-rightside">
+            <div class="btn top-btn top-cart" onclick="cart()">
+              <img src="images/icon-cart.svg" class="top-cart" alt="">
+            </div>
+            <div class="btn top-btn top-avatar">
+              <img src="images/image-avatar.png" class="avatar" alt="">
+            </div>
+            <div class="cart-card">
+              <div class="cart-title">Cart</div>
+              Your cart is empty.
+            </div>
+          </div>
         </div>
       </div>
       <hr />
@@ -76,12 +90,12 @@
             <del>$250.00 </del>
             <div class="row2">
               <div class="amount">
-                <img src="images/icon-minus.svg" onclick="amount('minus')" class="btn icon-minus" alt="">
+                <img src="images/icon-minus.svg" onclick="amount('minus')" class="btn icon-minus" alt="" draggable="false">
                 <div class="n-amount" id="amount">0</div>
-                <img src="images/icon-plus.svg" onclick="amount('plus')" class="btn icon-plus" alt="">
+                <img src="images/icon-plus.svg" onclick="amount('plus')" class="btn icon-plus" alt="" draggable="false">
               </div>
               <div class="btn addtocart">
-                <img src="images/icon-cart.svg" class="btn icon-cart" alt="">
+                <img src="images/icon-cart.svg" class="btn icon-cart" alt="" draggable="false">
                 <div class="txt-addtocart">Add to cart</div>
               </div>
             </div>

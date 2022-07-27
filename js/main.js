@@ -98,6 +98,13 @@ function amount(op) {
   }
 }
 
+var cart_open = false
+function cart() {
+  if(cart_open) {
+    // show()
+  }
+}
+
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     lb_close();
