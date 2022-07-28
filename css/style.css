@@ -123,6 +123,7 @@ body {
   padding-top: 25px;
   padding-bottom: 25px;
   justify-content: space-between;
+
 }
 
 .top-banner {
@@ -456,7 +457,7 @@ del {
 
 .cart-card {
   position: absolute;
-  top: 35px;
+  top: 50px;
   right: -70px;
   width: 17.5vw;
   height: 25vh;
@@ -465,8 +466,23 @@ del {
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 .cart-title {
-  padding: 15px;
+  /* margin: 15px; */
+  display: flex;
   font-weight: 700;
-  font-size: 14px;
-  border-bottom: 1px solid hsl(220, 14%, 75%);
+  font-size: 11px;
+  border-bottom: 0.75px solid hsl(220, 22%, 81%);
+  height: 5vh;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.cart-empty {
+  color:hsl(219, 9%, 45%);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 20vh;
+  display: flex;
+  font-size: 11px;
+  font-weight: 700;
 }
