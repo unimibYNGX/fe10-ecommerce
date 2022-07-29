@@ -1,5 +1,6 @@
 function add(name, id) {
   document.getElementById(id).classList.add(name);
+  // console.log("added " + name + " to " + id);
 }
 
 function remove(name, id) {

@@ -85,12 +85,14 @@ function amount(op) {
       if (current > 0) {
         current -= 1;
         amount.innerHTML = current;
+        updateAddtocart();
       }
       break;
     case "plus":
       if (current < Number.MAX_SAFE_INTEGER) {
         current += 1;
         amount.innerHTML = current;
+        updateAddtocart();
       }
       break;
     default:
@@ -99,17 +101,81 @@ function amount(op) {
 }
 
 function cart() {
-  var cart = 'cart-card'
-  var cart_elem = document.getElementById(cart)
-  if (cart_elem.classList.contains('hidden')) {
+  var cart = "cart-card";
+  var cart_elem = document.getElementById(cart);
+  if (cart_elem.classList.contains("hidden")) {
     show(cart);
-    document.getElementById('top-cart').classList.add('dark')
+    document.getElementById("top-cart").classList.add("dark");
   } else {
     hide(cart);
-    document.getElementById('top-cart').classList.remove('dark')
+    document.getElementById("top-cart").classList.remove("dark");
   }
 }
 cart();
+
+var cart_elems = [];
+function addtocart(elem) {
+  switch (elem) {
+    case "FLES":
+      cart_elems.push(fles);
+      // console.log(cart_elems);
+      updateCart();
+      break;
+    default:
+      break;
+  }
+}
+function updateAddtocart() {
+  var btn = document.getElementById("addtocart");
+  var count = document.getElementById("amount").textContent;
+  if (count < 1) {
+    add("hover-disabled", "addtocart");
+    // console.log("adding");
+  } else {
+    remove("hover-disabled", "addtocart");
+    // console.log("removing");
+  }
+}
+updateAddtocart();
+
+function updateCart() {
+  // var count = document.getElementById("amount");
+  var cart = document.getElementById("cart-content");
+  if (cart_elems.length > 0) {
+    console.log(cart_elems.length);
+    cart.innerHTML = "";
+    cart.innerHTML = addProds(cart_elems);
+  }
+}
+function addProds(arr) {
+  var code = "";
+  arr.forEach((element) => {
+    code +=
+      '<div class="item"> <div class="div-item-thumb"><img src="' +
+      element.image +
+      '" alt=""></div> </div>';
+  });
+  return code;
+}
+
+class Product {
+  constructor(id, title, price) {
+    this.id = id;
+    this.image = "images/images-thumb/image-product-" + getImageN(id) + "-thumbnail.jpg";
+    this.title = title;
+    this.price = price;
+  }
+}
+const fles = new Product("FLES", "Fall Limited Edition Sneakers", 125);
+
+function getImageN(id) {
+  switch (id) {
+    case "FLES":
+      return 1;
+    default:
+      return "empty";
+  }
+}
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {

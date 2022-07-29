@@ -226,6 +226,9 @@ hr {
 .hover-disabled {
   pointer-events: none;
 }
+.addtocart.hover-disabled {
+  filter: opacity(50%);
+}
 
 /* .lightbox {
     height: 100%;
@@ -478,7 +481,7 @@ del {
   user-select: none;
 }
 
-.cart-empty {
+.cart-content {
   color: hsl(219, 9%, 45%);
   justify-content: center;
   align-items: center;
@@ -492,3 +495,4 @@ del {
 .dark {
   filter: brightness(0%);
 }
+
