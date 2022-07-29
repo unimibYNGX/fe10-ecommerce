@@ -11,6 +11,7 @@ function select(n) {
   }
   return false;
 }
+
 function lb_select(n) {
   if (n != null) {
     var lb_arr = document.getElementsByClassName("lb-thumb-img");
@@ -79,7 +80,6 @@ function move(direction) {
 function amount(op) {
   var amount = document.getElementById("amount");
   var current = parseInt(amount.textContent);
-  // console.log(amount + current);
   switch (op) {
     case "minus":
       if (current > 0) {
@@ -115,45 +115,68 @@ cart();
 
 var cart_elems = [];
 function addtocart(elem) {
+  var count = parseInt(document.getElementById("amount").textContent);
   switch (elem) {
     case "FLES":
-      cart_elems.push(fles);
-      // console.log(cart_elems);
+      for (let i = 1; i <= count; i++) {
+        cart_elems.push(fles);
+        console.log("pushed 'fles' #" + i);
+      }
       updateCart();
       break;
     default:
       break;
   }
 }
+
 function updateAddtocart() {
   var btn = document.getElementById("addtocart");
   var count = document.getElementById("amount").textContent;
   if (count < 1) {
     add("hover-disabled", "addtocart");
-    // console.log("adding");
   } else {
     remove("hover-disabled", "addtocart");
-    // console.log("removing");
   }
 }
 updateAddtocart();
 
 function updateCart() {
-  // var count = document.getElementById("amount");
   var cart = document.getElementById("cart-content");
   if (cart_elems.length > 0) {
     console.log(cart_elems.length);
     cart.innerHTML = "";
     cart.innerHTML = addProds(cart_elems);
+    show("cart-checkout");
+  } else {
+    cart.innerHTML = "";
+    cart.innerHTML = "Your cart is empty";
+    hide("cart-checkout");
   }
+  document.getElementById("amount").innerHTML = 0;
+  updateAddtocart();
 }
+updateCart();
+
 function addProds(arr) {
   var code = "";
   arr.forEach((element) => {
     code +=
-      '<div class="item"> <div class="div-item-thumb"><img src="' +
+      '<div class="cart-item">' +
+      '<div class="item-left"><div class="div-item-thumb"><img class="img-item" src="' +
       element.image +
-      '" alt=""></div> </div>';
+      '" alt=""></div></div>' +
+      '<div class="item-middle">' +
+      '<div class="item-middle-top">' +
+      element.title +
+      "</div>" +
+      '<div class="item-middle-bottom">' +
+      "$" +
+      element.price.toFixed(2) +
+      "</div>" +
+      "</div>" +
+      '<div class="item-right">' +
+      '<img src="images/icon-delete.svg" class="btn item-bin">' +
+      "</div></div>";
   });
   return code;
 }
@@ -161,7 +184,8 @@ function addProds(arr) {
 class Product {
   constructor(id, title, price) {
     this.id = id;
-    this.image = "images/images-thumb/image-product-" + getImageN(id) + "-thumbnail.jpg";
+    this.image =
+      "images/images-thumb/image-product-" + getImageN(id) + "-thumbnail.jpg";
     this.title = title;
     this.price = price;
   }
