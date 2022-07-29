@@ -123,7 +123,6 @@ body {
   padding-top: 25px;
   padding-bottom: 25px;
   justify-content: space-between;
-
 }
 
 .top-banner {
@@ -457,13 +456,15 @@ del {
 
 .cart-card {
   position: absolute;
-  top: 50px;
+  top: 35px;
   right: -70px;
   width: 17.5vw;
   height: 25vh;
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  background-color: var(--white);
 }
 .cart-title {
   /* margin: 15px; */
@@ -474,10 +475,11 @@ del {
   height: 5vh;
   align-items: center;
   padding-left: 10px;
+  user-select: none;
 }
 
 .cart-empty {
-  color:hsl(219, 9%, 45%);
+  color: hsl(219, 9%, 45%);
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -485,4 +487,8 @@ del {
   display: flex;
   font-size: 11px;
   font-weight: 700;
+  user-select: none;
+}
+.dark {
+  filter: brightness(0%);
 }

@@ -79,7 +79,7 @@ function move(direction) {
 function amount(op) {
   var amount = document.getElementById("amount");
   var current = parseInt(amount.textContent);
-  console.log(amount + current);
+  // console.log(amount + current);
   switch (op) {
     case "minus":
       if (current > 0) {
@@ -98,21 +98,27 @@ function amount(op) {
   }
 }
 
-var cart_open = false
 function cart() {
-  if(cart_open) {
-    // show()
+  var cart = 'cart-card'
+  var cart_elem = document.getElementById(cart)
+  if (cart_elem.classList.contains('hidden')) {
+    show(cart);
+    document.getElementById('top-cart').classList.add('dark')
+  } else {
+    hide(cart);
+    document.getElementById('top-cart').classList.remove('dark')
   }
 }
+cart();
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     lb_close();
   }
   if (event.key === "ArrowLeft") {
-    move('prev')
+    move("prev");
   }
   if (event.key === "ArrowRight") {
-    move('next')
+    move("next");
   }
 });
