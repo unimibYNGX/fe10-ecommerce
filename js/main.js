@@ -120,9 +120,10 @@ function addtocart(elem) {
     case "FLES":
       for (let i = 1; i <= count; i++) {
         cart_elems.push(fles);
-        console.log("pushed 'fles' #" + i);
       }
       updateCart();
+      updateAddtocart();
+      updateCounter();
       break;
     default:
       break;
@@ -143,41 +144,68 @@ updateAddtocart();
 function updateCart() {
   var cart = document.getElementById("cart-content");
   if (cart_elems.length > 0) {
-    console.log(cart_elems.length);
     cart.innerHTML = "";
     cart.innerHTML = addProds(cart_elems);
     show("cart-checkout");
   } else {
     cart.innerHTML = "";
-    cart.innerHTML = "Your cart is empty";
+    cart.innerHTML = "<div class='cart-empty'>Your cart is empty</div>";
     hide("cart-checkout");
   }
   document.getElementById("amount").innerHTML = 0;
-  updateAddtocart();
 }
 updateCart();
 
+function groupProds(arr) {
+  const resultArr = arr.reduce(
+    (item, index) => {
+      if (typeof item.last === "undefined" || item.last !== index) {
+        item.last = index;
+        item.arr.push([]);
+      }
+      item.arr[item.arr.length - 1].push(index);
+      return item;
+    },
+    { arr: [] }
+  ).arr;
+
+  return resultArr;
+}
+
+/*debug*/
+function manualPush(product) {
+  cart_elems.push(product);
+}
+
 function addProds(arr) {
   var code = "";
-  arr.forEach((element) => {
+  var grouped_arr = groupProds(arr);
+  for (let i = 0; i < grouped_arr.length; i++) {
+    var prod = grouped_arr[i][0];
     code +=
       '<div class="cart-item">' +
       '<div class="item-left"><div class="div-item-thumb"><img class="img-item" src="' +
-      element.image +
+      prod.image +
       '" alt=""></div></div>' +
       '<div class="item-middle">' +
       '<div class="item-middle-top">' +
-      element.title +
+      prod.title +
       "</div>" +
       '<div class="item-middle-bottom">' +
       "$" +
-      element.price.toFixed(2) +
+      prod.price.toFixed(2) +
+      " x " +
+      grouped_arr[i].length +
+      " <div class='total'>" +
+      "&nbsp; $" +
+      (prod.price * grouped_arr[i].length).toFixed(2) +
+      "</div>" +
       "</div>" +
       "</div>" +
       '<div class="item-right">' +
       '<img src="images/icon-delete.svg" class="btn item-bin">' +
       "</div></div>";
-  });
+  }
   return code;
 }
 
@@ -191,6 +219,7 @@ class Product {
   }
 }
 const fles = new Product("FLES", "Fall Limited Edition Sneakers", 125);
+const yang = new Product("YANG", "yangomango", 123);
 
 function getImageN(id) {
   switch (id) {
@@ -212,3 +241,24 @@ document.addEventListener("keydown", function (event) {
     move("next");
   }
 });
+
+function isJsonString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
+function updateCounter() {
+  var amount = cart_elems.length;
+  var counter = document.getElementById("counter");
+  if (amount > 0) {
+    counter.innerHTML = amount;
+    counter.style.setProperty("display", "flex", "important");
+  } else {
+    counter.style.setProperty("display", "none", "important");
+  }
+}
+updateCounter();

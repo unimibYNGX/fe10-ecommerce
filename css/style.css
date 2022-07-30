@@ -11,7 +11,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .top-cart:hover {
+  .img-cart:hover {
     filter: brightness(0%);
   }
   .avatar:hover {
@@ -36,7 +36,8 @@
     filter: invert(62%) sepia(21%) saturate(1851%) hue-rotate(335deg)
       brightness(97%) contrast(93%);
   }
-  .addtocart:hover, .cart-checkout:hover {
+  .addtocart:hover,
+  .cart-checkout:hover {
     background-color: hsl(26, 100%, 70%);
   }
   .icon-plus:hover,
@@ -99,6 +100,7 @@ body {
   width: 80%;
   border-radius: 7.5px;
   margin-bottom: 15px;
+  user-select: none;
 }
 
 .top {
@@ -350,6 +352,7 @@ h1 {
   font-size: 13px;
   padding: 3px 7px 3px 7px;
   background-color: var(--pale-orange);
+  user-select: none;
 }
 
 .row1 {
@@ -360,6 +363,7 @@ h1 {
 
 del {
   color: hsl(220, 14%, 75%);
+  user-select: none;
 }
 
 .amount {
@@ -377,6 +381,7 @@ del {
   margin-top: 25px;
   margin-right: 10px;
   height: 30px;
+  user-select: none;
 }
 
 .n-amount {
@@ -432,7 +437,7 @@ del {
   filter: brightness(0) invert(1);
   width: 12px;
   height: 11px;
-} 
+}
 
 .txt-addtocart {
   margin-left: 5px;
@@ -494,14 +499,16 @@ del {
   font-size: 11px;
   user-select: none;
   padding: 15px;
+  padding-bottom: 5px;
 }
+
 
 .dark {
   filter: brightness(0%);
 }
 
 .cart-content {
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
 }
 
@@ -513,7 +520,19 @@ del {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  margin-bottom: 7.5px;
+}
+.cart-empty {
+  margin-bottom: 10px;
+}
+.item-bin {
+  justify-self: right;
+}
+
+.item-middle {
+  /* justify-self: left; */
+  margin-left: 50px;
 }
 
 .img-item {
@@ -533,14 +552,54 @@ del {
   margin-bottom: 20px;
 }
 
-.item-middle-bottom, .item-middle-top {
+.item-middle-bottom,
+.item-middle-top {
   display: flex;
   text-align: left;
   justify-content: left;
 }
 
+.item-middle-bottom {
+  margin-top: 2px;
+}
+
 .item-middle {
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: auto;
+  margin-left: 10px;
   font-weight: 400;
+}
+
+.item-bin {
+  width: 10px;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+}
+
+.total {
+  font-weight: 700;
+  color: var(--black);
+}
+
+.btn.top-btn.top-cart {
+  position: relative;
+}
+.counter {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 6.5px;
+  color: white;
+  font-weight: 700;
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 50px;
+  height: 11px;
+  width: 17px;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  z-index: 1;
 }

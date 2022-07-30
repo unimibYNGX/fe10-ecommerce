@@ -50,7 +50,8 @@
         </div>
         <div class="top-rightside">
           <div class="btn top-btn top-cart" onclick="cart()">
-            <img src="images/icon-cart.svg" class="top-cart" id="top-cart" draggable="false" alt="">
+            <div class="counter" id="counter"></div>
+            <img src="images/icon-cart.svg" class="img-cart" id="top-cart" draggable="false" alt="">
           </div>
           <div class="btn top-btn top-avatar">
             <img src="images/image-avatar.png" class="avatar" draggable="false" alt="">
@@ -58,7 +59,7 @@
           <div class="cart-card" id="cart-card">
             <div class="cart-title">Cart</div>
             <div class="cart-content" id="cart-content">
-              Your cart is empty.
+              <div class="cart-empty">Your cart is empty.</div>
             </div>
             <div class="btn cart-checkout" id="cart-checkout">Checkout</div>
           </div>
