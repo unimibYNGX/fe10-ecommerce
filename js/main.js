@@ -44,7 +44,7 @@ function lb_showMain(n) {
   }
 }
 
-// Hides/closes the lightbox 
+// Hides/closes the lightbox
 function lb_close() {
   hide("lightbox");
 }
@@ -101,13 +101,16 @@ function amount(op) {
 }
 
 // Called when the top-cart button is pressed, shows/hides it
+var cart_open = false;
 function cart() {
   var cart = "cart-card";
   var cart_elem = document.getElementById(cart);
   if (cart_elem.classList.contains("hidden")) {
+    cart_open = true;
     show(cart);
     document.getElementById("top-cart").classList.add("dark");
   } else {
+    cart_open = false;
     hide(cart);
     document.getElementById("top-cart").classList.remove("dark");
   }
@@ -157,7 +160,7 @@ function updateCart() {
     cart.innerHTML = "<div class='cart-empty'>Your cart is empty</div>";
     hide("cart-checkout");
   }
-  document.getElementById("amount").innerHTML = 0;
+  document.getElementById("amount").innerHTML = 1;
 }
 updateCart();
 
@@ -180,6 +183,9 @@ function groupProds(arr) {
 /*debug*/
 function manualPush(product) {
   cart_elems.push(product);
+  updateCart();
+  updateAddtocart();
+  updateCounter();
 }
 
 // Returns an HTML template containing all the added products, grouped by their ID
@@ -206,7 +212,7 @@ function addProds(arr) {
           '</div>' + 
         '</div>' +
         '<div class="item-right">' +
-          '<img src="images/icon-delete.svg" class="btn item-bin">' +
+          '<img src="images/icon-delete.svg" id="item-bin" class="btn item-bin" onclick="removeItem(`' + prod.id + '`)">' +
         '</div>' + 
       '</div>';
   }
@@ -248,6 +254,44 @@ document.addEventListener("keydown", function (event) {
     move("next");
   }
 });
+
+var firstclick = true;
+window.addEventListener("click", function (e) {
+  var cart = "cart-card";
+  if (cart_open) {
+    if (!this.document.getElementById(cart).contains(e.target)) {
+      if (firstclick) {
+        firstclick = false;
+      } else {
+        var bin_exists = this.document.getElementById("item-bin");
+        if (bin_exists == null) {
+          cart_open = false;
+          hide(cart);
+          document.getElementById("top-cart").classList.remove("dark");
+          firstclick = true;
+        } else {
+          if (!this.document.getElementById("item-bin").contains(e.target)) {
+            firstclick = true;
+          }
+        }
+      }
+    }
+  }
+});
+
+// Removes the correspondent item in the cart by 1
+function removeItem(id) {
+  console.log(cart_elems);
+  for (let i = 0; i < cart_elems.length; i++) {
+    if (cart_elems[i].id == id) {
+      cart_elems.splice(i, 1);
+      break;
+    }
+  }
+  updateCart();
+  updateAddtocart();
+  updateCounter();
+}
 
 // To check if a string is a JSON
 function isJsonString(str) {
