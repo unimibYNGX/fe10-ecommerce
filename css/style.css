@@ -431,6 +431,7 @@ del {
   justify-content: center;
   align-items: center;
   height: 30px;
+  min-width: 80.5px;
 }
 
 .icon-cart {

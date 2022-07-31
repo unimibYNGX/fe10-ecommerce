@@ -255,29 +255,48 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-var firstclick = true;
+/* var firstclick = true;
 window.addEventListener("click", function (e) {
+  console.clear();
+  console.log("fc: " + firstclick);
   var cart = "cart-card";
   if (cart_open) {
     if (!this.document.getElementById(cart).contains(e.target)) {
       if (firstclick) {
+        console.log("clicked in1");
         firstclick = false;
       } else {
-        var bin_exists = this.document.getElementById("item-bin");
-        if (bin_exists == null) {
+        var bin = this.document.getElementById("item-bin");
+        if (bin == null) {
+          console.log("clicked out1");
           cart_open = false;
           hide(cart);
           document.getElementById("top-cart").classList.remove("dark");
           firstclick = true;
         } else {
           if (!this.document.getElementById("item-bin").contains(e.target)) {
+            console.log("clicked out2");
+            cart_open = false;
+            hide(cart);
+            document.getElementById("top-cart").classList.remove("dark");
             firstclick = true;
           }
         }
       }
+    } else {
+      console.log("clicked in2");
     }
   }
+  console.log("cart: " + cart_open);
+  updateCart2();
 });
+function updateCart2() {
+  if (document.getElementById("cart-card").classList.contains("hidden")) {
+    cart_open = false;
+  } else {
+    cart_open = true;
+  }
+} */
 
 // Removes the correspondent item in the cart by 1
 function removeItem(id) {
