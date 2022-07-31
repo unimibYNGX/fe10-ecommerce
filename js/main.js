@@ -1,3 +1,4 @@
+// Selects the image at n position
 function select(n) {
   if (n != null) {
     var arr = document.getElementsByClassName("thumb-img");
@@ -9,9 +10,9 @@ function select(n) {
     arr[n].classList.add("hover-disabled");
     showMain(n);
   }
-  return false;
 }
 
+// Lightbox: selects the image at n position
 function lb_select(n) {
   if (n != null) {
     var lb_arr = document.getElementsByClassName("lb-thumb-img");
@@ -23,16 +24,9 @@ function lb_select(n) {
     lb_arr[n].classList.add("hover-disabled");
     lb_showMain(n);
   }
-  return false;
 }
 
-function getPos(attribute, arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].classList.contains(attribute)) return i;
-  }
-  return -1;
-}
-
+// Shows the main image based on the given n number
 function showMain(n) {
   if (n != null) {
     var image = document.getElementById("main-img");
@@ -40,6 +34,8 @@ function showMain(n) {
     image.src = "images/images-main/image-product-" + pos + ".jpg";
   }
 }
+
+// Lightbox: shows the main image based on the given n number
 function lb_showMain(n) {
   if (n != null) {
     var lb_image = document.getElementById("lb-img");
@@ -48,9 +44,12 @@ function lb_showMain(n) {
   }
 }
 
+// Hides/closes the lightbox 
 function lb_close() {
   hide("lightbox");
 }
+
+// Shows the lightbox
 function lb_open() {
   show("lightbox");
   var pos = getPos("selected", document.getElementsByClassName("thumb-img"));
@@ -58,6 +57,7 @@ function lb_open() {
   lb_select(pos);
 }
 
+// Lightbox: updates the images when any previous/next image command is called
 function move(direction) {
   var array = document.getElementsByClassName("lb-thumb-img");
   for (let i = 0; i < array.length; i++) {
@@ -77,6 +77,7 @@ function move(direction) {
   }
 }
 
+// Updates the amount's counter when the minus/plus buttons are pressed
 function amount(op) {
   var amount = document.getElementById("amount");
   var current = parseInt(amount.textContent);
@@ -85,21 +86,21 @@ function amount(op) {
       if (current > 0) {
         current -= 1;
         amount.innerHTML = current;
-        updateAddtocart();
       }
       break;
     case "plus":
       if (current < Number.MAX_SAFE_INTEGER) {
         current += 1;
         amount.innerHTML = current;
-        updateAddtocart();
       }
       break;
     default:
       break;
   }
+  updateAddtocart();
 }
 
+// Called when the top-cart button is pressed, shows/hides it
 function cart() {
   var cart = "cart-card";
   var cart_elem = document.getElementById(cart);
@@ -113,6 +114,7 @@ function cart() {
 }
 cart();
 
+// Pushes the products in the cart by their amount, updates the cart, addtocart button, counter
 var cart_elems = [];
 function addtocart(elem) {
   var count = parseInt(document.getElementById("amount").textContent);
@@ -130,17 +132,20 @@ function addtocart(elem) {
   }
 }
 
+// Updates the 'addtocart' button whenever the minus/plus buttons are pressed, disabling it when count is 0
 function updateAddtocart() {
-  var btn = document.getElementById("addtocart");
   var count = document.getElementById("amount").textContent;
   if (count < 1) {
     add("hover-disabled", "addtocart");
+    add("hover-disabled", "icon-minus");
   } else {
     remove("hover-disabled", "addtocart");
+    remove("hover-disabled", "icon-minus");
   }
 }
 updateAddtocart();
 
+// Updates the cart-card section by checking the amount of the products added in the cart
 function updateCart() {
   var cart = document.getElementById("cart-content");
   if (cart_elems.length > 0) {
@@ -156,6 +161,7 @@ function updateCart() {
 }
 updateCart();
 
+// Returns an array of the products grouped by their ID
 function groupProds(arr) {
   const resultArr = arr.reduce(
     (item, index) => {
@@ -168,7 +174,6 @@ function groupProds(arr) {
     },
     { arr: [] }
   ).arr;
-
   return resultArr;
 }
 
@@ -177,34 +182,33 @@ function manualPush(product) {
   cart_elems.push(product);
 }
 
+// Returns an HTML template containing all the added products, grouped by their ID
+// prettier-ignore
 function addProds(arr) {
   var code = "";
   var grouped_arr = groupProds(arr);
   for (let i = 0; i < grouped_arr.length; i++) {
     var prod = grouped_arr[i][0];
+    var length = grouped_arr[i].length;
     code +=
       '<div class="cart-item">' +
-      '<div class="item-left"><div class="div-item-thumb"><img class="img-item" src="' +
-      prod.image +
-      '" alt=""></div></div>' +
-      '<div class="item-middle">' +
-      '<div class="item-middle-top">' +
-      prod.title +
-      "</div>" +
-      '<div class="item-middle-bottom">' +
-      "$" +
-      prod.price.toFixed(2) +
-      " x " +
-      grouped_arr[i].length +
-      " <div class='total'>" +
-      "&nbsp; $" +
-      (prod.price * grouped_arr[i].length).toFixed(2) +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      '<div class="item-right">' +
-      '<img src="images/icon-delete.svg" class="btn item-bin">' +
-      "</div></div>";
+        '<div class="item-left">' + 
+          '<div class="div-item-thumb">' + 
+            '<img class="img-item" src="'+prod.image+'" alt="">' + 
+          '</div>' + 
+        '</div>' +
+        '<div class="item-middle">' +
+          '<div class="item-middle-top">'+prod.title+'</div>' +
+          '<div class="item-middle-bottom">'+'$'+prod.price.toFixed(2)+' x '+ length +
+            '<div class="total">' +
+              '&nbsp; $'+(prod.price * length).toFixed(2) + 
+            '</div>' + 
+          '</div>' + 
+        '</div>' +
+        '<div class="item-right">' +
+          '<img src="images/icon-delete.svg" class="btn item-bin">' +
+        '</div>' + 
+      '</div>';
   }
   return code;
 }
@@ -221,10 +225,13 @@ class Product {
 const fles = new Product("FLES", "Fall Limited Edition Sneakers", 125);
 const yang = new Product("YANG", "yangomango", 123);
 
+// Returns the number of the image based on the id
 function getImageN(id) {
   switch (id) {
     case "FLES":
       return 1;
+    case "YANG":
+      return 2;
     default:
       return "empty";
   }
@@ -242,6 +249,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+// To check if a string is a JSON
 function isJsonString(str) {
   try {
     JSON.parse(str);
@@ -251,6 +259,7 @@ function isJsonString(str) {
   return true;
 }
 
+// Updates the counter over the top-cart button, called when adding products in the cart
 function updateCounter() {
   var amount = cart_elems.length;
   var counter = document.getElementById("counter");

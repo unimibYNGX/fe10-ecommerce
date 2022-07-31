@@ -215,7 +215,7 @@ hr {
   pointer-events: none;
 }
 
-.addtocart.hover-disabled {
+.addtocart.hover-disabled, .icon-minus.hover-disabled {
   filter: opacity(50%);
 }
 
