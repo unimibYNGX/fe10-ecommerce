@@ -38,8 +38,8 @@
         </div>
       </div>
     </div>
-    <div class="main">
-      <div class="top">
+    <div class="main" id="main">
+      <div class="top" id="top">
         <div class="top-banner">
           <img src="images/logo.svg" draggable="false" class="btn logo" id="logo" alt="" />
           <div class="btn top-btn hover-underline-animation">Collections</div>
@@ -48,7 +48,7 @@
           <div class="btn top-btn hover-underline-animation">About</div>
           <div class="btn top-btn hover-underline-animation">Contact</div>
         </div>
-        <div class="top-rightside">
+        <div class="top-rightside" id="top-rightside">
           <div class="btn top-btn top-cart" onclick="cart()">
             <div class="counter" id="counter"></div>
             <img src="images/icon-cart.svg" class="img-cart" id="top-cart" draggable="false" alt="">
@@ -65,9 +65,9 @@
           </div>
         </div>
       </div>
-      <hr/>
-      <div class="bottom">
-        <div class="bottom-left">
+      <hr id="hr"/>
+      <div class="bottom" id="bottom">
+        <div class="bottom-left" id="bottom-left">
           <div class="btn div-main-img" id="div-main-img">
             <img src="images/images-main/image-product-1.jpg" class="main-img" id="main-img" onclick="lb_open()" draggable="false" alt="">
           </div>
@@ -78,7 +78,7 @@
             <img src="images/images-thumb/image-product-4-thumbnail.jpg" onclick="select(3)" draggable="false" class="btn thumb-img" id="thumb4" alt="">
           </div>
         </div>
-        <div class="bottom-right">
+        <div class="bottom-right" id="bottom-right">
           <div class="card">
             <div class="label">Sneaker Company</div>
             <h1>Fall Limited Edition Sneakers</h1> 
@@ -93,7 +93,7 @@
             </div>
             <del>$250.00 </del>
             <div class="row2">
-              <div class="amount">
+              <div class="amount" id="div-amount">
                 <img src="images/icon-minus.svg" onclick="amount('minus')" id="icon-minus" class="btn icon-minus" alt="" draggable="false">
                 <div class="n-amount" id="amount">1</div>
                 <img src="images/icon-plus.svg" onclick="amount('plus')" class="btn icon-plus" alt="" draggable="false">
@@ -106,15 +106,17 @@
           </div>
         </div>
       </div>
-
-      <div class="attribution">
-      Challenge by
-        <a href="https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub/ecommerce-product-page-wip-need-help-uhGMC8A-J6" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="https://github.com/unimibYNGX/fe10-ecommerce">Yang</a>.
-      </div>
+      
     </main>
+    <div class="attribution">
+    Challenge by
+      <a href="https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub/ecommerce-product-page-wip-need-help-uhGMC8A-J6" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/unimibYNGX/fe10-ecommerce">Yang</a>.
+    </div>
 
+    <!-- <script src="js/jquery-3.6.0.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/yangoLib.js"></script>
     <script src="js/main.js"></script>
   </body>

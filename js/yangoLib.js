@@ -82,13 +82,60 @@ function checkSize(request, query) {
 }
 
 // Called when the website needs to be shown in mobile size, any element adjustment is written here
-function mobile() {}
+function mobile() {
+  hideByClass('top-btn')
+  hide('hr')
+
+  set('bottom', 'flex-wrap', 'wrap')
+  set('bottom', 'margin-top', '0')
+
+  set('bottom-left', 'width', '100%')
+  set('bottom-left', 'margin-right', '0px')
+  set('bottom-left', 'margin-left', '0px')
+  
+  hide('div-thumb-img')
+  
+  set('bottom-right', 'width', '100%')
+  set('bottom-right', 'margin-right', '0px')
+  set('bottom-right', 'margin-left', '0px')
+
+  set('div-amount', 'width', '100%')
+  set('div-amount', 'justify-content', 'space-between')
+  set('div-amount', 'margin-right', '0px')
+
+  set('addtocart', 'width', '100%')
+
+  set('main', 'margin-bottom', '100px')
+
+  set('top', 'justify-content', 'center')
+
+  set('top-rightside', 'margin-right', '0')
+
+  set('logo', 'padding', '0')
+
+  hide('cart-card')
+}
 
 // Same as above, but for desktop
-function desktop() {}
+function desktop() {
+  showByClass('top-btn')
+  show('hr')
+  show('div-thumb-img')
+  $('div').attr('style', '');
+  document.getElementById('counter').style.setProperty("display", "none", "important");
+}
 
 // Calls checkshize() when the viewport is being resized
 window.addEventListener("resize", function (event) {
-  checkSize("device", "max-width: 645px");
+  checkSize("device", "max-width: 900px");
+
 });
-checkSize("device", "max-width: 645px");
+checkSize("device", "max-width: 900px");
+
+hideByClass('attribution')
+
+function reloadCss()
+{
+    for (var link of document.querySelectorAll("link[rel=stylesheet]")) link.href = link.href.replace(/\?.*|$/, "?" + Date.now())
+    console.log("reloaded");
+}
