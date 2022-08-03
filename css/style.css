@@ -462,6 +462,9 @@ del {
   justify-content: center;
   align-items: center;
   height: 30px;
+
+  box-shadow: hsl(26, 100%, 55%) 0px 50px 100px -20px,
+    hsl(26, 100%, 55%) 0px 30px 60px -30px;
 }
 
 .icon-cart {
@@ -501,6 +504,11 @@ del {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   background-color: var(--white);
+
+  z-index: 1;
+}
+.cart-card.mobile-cart-card {
+
 }
 
 .cart-title {
@@ -576,6 +584,10 @@ del {
   text-align: center;
   margin-top: 0;
   margin-bottom: 20px;
+
+  /* box-shadow: hsl(26, 100%, 55%) 0px 50px 100px -20px,
+    hsl(26, 100%, 55%) 0px 30px 60px -30px; */
+    /* doesn't work */
 }
 
 .item-middle-bottom,

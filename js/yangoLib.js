@@ -82,7 +82,9 @@ function checkSize(request, query) {
 }
 
 // Called when the website needs to be shown in mobile size, any element adjustment is written here
+var deviceState = "";
 function mobile() {
+  deviceState = "mobile";
   hideByClass("top-btn");
   hide("hr");
 
@@ -117,23 +119,29 @@ function mobile() {
 
   set("logo", "padding", "0");
 
+  set('cart-card', 'top', '112.5%')
+  set('cart-card', 'right', '12.5%')
+  set('cart-card', 'width', '75%')
+
   show("top-cart");
   show("top-avatar");
 
-  document.getElementById("main-img").onclick = "";
+  // document.getElementById("main-img").onclick = "";
   remove("btn", "div-main-img");
   set("div-main-img", "position", "relative");
-
   document
     .getElementById("div-prev")
     .style.setProperty("display", "flex", "important");
   document
     .getElementById("div-next")
     .style.setProperty("display", "flex", "important");
+
+  // add('mobile-cart-card', 'cart-card')
 }
 
-// Same as above, but for desktop
+// Same as above, but for desktop, deviceState will be used for lb_open()
 function desktop() {
+  deviceState = "desktop";
   showByClass("top-btn");
   show("hr");
   show("div-thumb-img");
@@ -143,13 +151,13 @@ function desktop() {
   document
     .getElementById("counter")
     .style.setProperty("display", "none", "important");
-
   document
     .getElementById("div-prev")
     .style.setProperty("display", "none", "important");
   document
     .getElementById("div-next")
     .style.setProperty("display", "none", "important");
+  // document.getElementById("main-img").onmousedown = "lb_open()";
 }
 
 // Calls checkshize() when the viewport is being resized

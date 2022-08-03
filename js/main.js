@@ -49,12 +49,15 @@ function lb_close() {
   hide("lightbox");
 }
 
-// Shows the lightbox
+// Shows the lightbox, doesn't show when in mobile mode
 function lb_open() {
-  show("lightbox");
-  var pos = getPos("selected", document.getElementsByClassName("thumb-img"));
-  lb_showMain(pos);
-  lb_select(pos);
+  if (deviceState == "desktop") {
+    console.log("opened lb");
+    show("lightbox");
+    var pos = getPos("selected", document.getElementsByClassName("thumb-img"));
+    lb_showMain(pos);
+    lb_select(pos);
+  }
 }
 
 // Lightbox: updates the images when any previous/next image command is called
@@ -82,12 +85,22 @@ function mobileMove(direction) {
   // console.log("current pos" + pos + ", going " + direction);
   switch (direction) {
     case "prev":
-      if (pos == 0)  {pos = array.length - 1; showMain(pos); }
-      else {pos -= 1; showMain(pos);}
+      if (pos == 0) {
+        pos = array.length - 1;
+        showMain(pos);
+      } else {
+        pos -= 1;
+        showMain(pos);
+      }
       break;
     case "next":
-      if (pos == array.length - 1)  {pos = 0; showMain(pos); }
-      else {pos += 1; showMain(pos);}
+      if (pos == array.length - 1) {
+        pos = 0;
+        showMain(pos);
+      } else {
+        pos += 1;
+        showMain(pos);
+      }
       break;
     default:
       break;
@@ -126,12 +139,12 @@ function cart() {
   if (cart_elem.classList.contains("hidden")) {
     cart_open = true;
     show(cart);
-    document.getElementById("top-cart").classList.add("dark");
+    document.getElementById("img-cart").classList.add("dark");
     console.log("opening cart");
   } else {
     cart_open = false;
     hide(cart);
-    document.getElementById("top-cart").classList.remove("dark");
+    document.getElementById("img-cart").classList.remove("dark");
     console.log("closing cart");
   }
 }
