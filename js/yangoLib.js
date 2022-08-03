@@ -107,13 +107,29 @@ function mobile() {
 
   set("main", "margin-bottom", "100px");
 
-  set("top", "justify-content", "center");
+  set("top", "justify-content", "space-between");
+  set("top", "padding-left", "10%");
+  set("top", "padding-right", "14%");
+
+  show("menu");
 
   set("top-rightside", "margin-right", "0");
 
   set("logo", "padding", "0");
 
-  hide("cart-card");
+  show("top-cart");
+  show("top-avatar");
+
+  document.getElementById("main-img").onclick = "";
+  remove("btn", "div-main-img");
+  set("div-main-img", "position", "relative");
+
+  document
+    .getElementById("div-prev")
+    .style.setProperty("display", "flex", "important");
+  document
+    .getElementById("div-next")
+    .style.setProperty("display", "flex", "important");
 }
 
 // Same as above, but for desktop
@@ -121,9 +137,18 @@ function desktop() {
   showByClass("top-btn");
   show("hr");
   show("div-thumb-img");
+  hide("menu");
+  add("btn", "div-main-img");
   $("div").attr("style", "");
   document
     .getElementById("counter")
+    .style.setProperty("display", "none", "important");
+
+  document
+    .getElementById("div-prev")
+    .style.setProperty("display", "none", "important");
+  document
+    .getElementById("div-next")
     .style.setProperty("display", "none", "important");
 }
 

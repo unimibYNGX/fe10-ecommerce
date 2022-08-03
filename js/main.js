@@ -76,6 +76,24 @@ function move(direction) {
       break;
   }
 }
+var pos = 0;
+function mobileMove(direction) {
+  var array = document.getElementsByClassName("thumb-img");
+  // console.log("current pos" + pos + ", going " + direction);
+  switch (direction) {
+    case "prev":
+      if (pos == 0)  {pos = array.length - 1; showMain(pos); }
+      else {pos -= 1; showMain(pos);}
+      break;
+    case "next":
+      if (pos == array.length - 1)  {pos = 0; showMain(pos); }
+      else {pos += 1; showMain(pos);}
+      break;
+    default:
+      break;
+  }
+  // console.log("pos at " + pos);
+}
 
 // Updates the amount's counter when the minus/plus buttons are pressed
 function amount(op) {
@@ -109,10 +127,12 @@ function cart() {
     cart_open = true;
     show(cart);
     document.getElementById("top-cart").classList.add("dark");
+    console.log("opening cart");
   } else {
     cart_open = false;
     hide(cart);
     document.getElementById("top-cart").classList.remove("dark");
+    console.log("closing cart");
   }
 }
 cart();

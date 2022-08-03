@@ -107,6 +107,12 @@ body {
   user-select: none;
 }
 
+.menu {
+  height: 18px;
+  margin-top: 5.9px;
+  margin-right: 20px;
+}
+
 .top {
   display: flex;
   width: 100%;
@@ -123,6 +129,9 @@ body {
   left: 120px;
 }
 
+.btn.top-btn.hover-underline-animation {
+  margin-top: 4.9px;
+}
 .top-btn {
   margin-left: 15px;
   margin-right: 15px;
@@ -316,6 +325,14 @@ hr {
   padding: 20px;
   background-color: var(--white);
   border-radius: 50px;
+}
+.div-main-img .div-prev {
+  left: 20px;
+  top: calc(50% - 22.5px);
+}
+.div-main-img .div-next {
+  right: 20px;
+  top: calc(50% - 22.5px);
 }
 
 .img-prev,

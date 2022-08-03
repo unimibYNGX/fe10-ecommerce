@@ -41,6 +41,7 @@
     <div class="main" id="main">
       <div class="top" id="top">
         <div class="top-banner">
+          <img src="images/icon-menu.svg" draggable="false" class="hidden btn menu" id="menu" alt="">
           <img src="images/logo.svg" draggable="false" class="btn logo" id="logo" alt="" />
           <div class="btn top-btn hover-underline-animation">Collections</div>
           <div class="btn top-btn hover-underline-animation">Men</div>
@@ -49,11 +50,11 @@
           <div class="btn top-btn hover-underline-animation">Contact</div>
         </div>
         <div class="top-rightside" id="top-rightside">
-          <div class="btn top-btn top-cart" onclick="cart()">
+          <div class="btn top-btn top-cart" id="top-cart" onclick="cart()">
             <div class="counter" id="counter"></div>
             <img src="images/icon-cart.svg" class="img-cart" id="top-cart" draggable="false" alt="">
           </div>
-          <div class="btn top-btn top-avatar">
+          <div class="btn top-btn top-avatar" id="top-avatar">
             <img src="images/image-avatar.png" class="avatar" draggable="false" alt="">
           </div>
           <div class="cart-card" id="cart-card">
@@ -69,7 +70,13 @@
       <div class="bottom" id="bottom">
         <div class="bottom-left" id="bottom-left">
           <div class="btn div-main-img" id="div-main-img">
+            <div class="btn div-prev" onclick="mobileMove('prev')" id="div-prev">
+              <img src="images/icon-previous.svg" class="img-prev" alt="">
+            </div>
             <img src="images/images-main/image-product-1.jpg" class="main-img" id="main-img" onclick="lb_open()" draggable="false" alt="">
+            <div class="btn div-next" onclick="mobileMove('next')" id="div-next">
+              <img src="images/icon-next.svg" class="img-next" alt="">
+            </div>
           </div>
           <div class="div-thumb-img" id="div-thumb-img">
             <img src="images/images-thumb/image-product-1-thumbnail.jpg" onclick="select(0)" draggable="false" class="btn thumb-img selected hover-disabled" id="thumb1" alt="">
