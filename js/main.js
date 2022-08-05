@@ -367,3 +367,72 @@ function updateCounter() {
   }
 }
 updateCounter();
+
+function getSidebarState() {
+  return !document.getElementById("sidebar").classList.contains("out");
+}
+//opens and closes the sidebar
+function sidebar() {
+  var isSidebarOpen = getSidebarState();
+  var sb = document.getElementById("sidebar");
+  var sbd = document.getElementById("sidebar-darken");
+  if (isSidebarOpen) {
+    // closing sidebar
+    sb.style.setProperty("left", "-65%");
+    sb.classList.add("out");
+    sbd.classList.add("out");
+    fade("close");
+  } else {
+    // opening sidebar
+    sb.style.setProperty("left", "0%");
+    sb.classList.remove("out");
+    sbd.classList.remove("out");
+    fade("open");
+  }
+}
+
+// sbop = sidebar opacity
+var sbop = 0;
+var sbd = document.getElementById("sidebar-darken");
+var fadeSpeed = 5;
+var fadeSpeed2 = 20;
+sbd.style.opacity = sbop;
+function fade(op) {
+  console.log("checking...");
+  checkFade()
+  if (op == "open") {
+    console.log("sbd open");
+    if (sbop < 0.7) {
+      sbop += 0.025;
+      setTimeout(function () {
+        fade("open");
+      }, fadeSpeed);
+      console.log("x");
+    }
+    sbd.style.opacity = sbop;
+  }
+  if (op == 'close') {
+    console.log("sbd close");
+    if(sbop > 0) {
+      sbop -= 0.025;
+      setTimeout(function() {
+        fade('close');
+      }, fadeSpeed2);
+      console.log('z');
+    }
+    sbd.style.opacity = sbop;
+  }
+  checkFade()
+}
+function checkFade() {
+  var o = sbd.style.opacity;
+  if (o <= 0) {
+    sbd.classList.add('hidden')
+    return true;
+  }
+  if (o > 0) {
+    sbd.classList.remove('hidden')
+    return false;
+  }
+}
+checkFade()

@@ -136,12 +136,15 @@ function mobile() {
     .getElementById("div-next")
     .style.setProperty("display", "flex", "important");
 
-  // add('mobile-cart-card', 'cart-card')
+    show('sidebar')
+    // show('sidebar-darken')
 }
 
 // Same as above, but for desktop, deviceState will be used for lb_open()
 function desktop() {
   deviceState = "desktop";
+  hide('sidebar')
+  hide('sidebar-darken')
   showByClass("top-btn");
   show("hr");
   show("div-thumb-img");
@@ -160,7 +163,7 @@ function desktop() {
   // document.getElementById("main-img").onmousedown = "lb_open()";
 }
 
-// Calls checkshize() when the viewport is being resized
+// Calls checksize() when the viewport is being resized
 window.addEventListener("resize", function (event) {
   checkSize("device", "max-width: 900px");
 });

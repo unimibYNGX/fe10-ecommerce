@@ -38,10 +38,25 @@
         </div>
       </div>
     </div>
+    <div class="sidebar out" id="sidebar">
+      <div class="btn div-side-close" onclick="sidebar()">
+        <img src="images/icon-close.svg" alt="" class="side-close">
+      </div>
+      <div class="side-buttons">
+        <div class="btn side-btn">Collections</div>
+        <div class="btn side-btn">Men</div>
+        <div class="btn side-btn">Women</div>
+        <div class="btn side-btn">About</div>
+        <div class="btn side-btn">Contact</div>
+      </div>
+    </div>
+    <div class="sidebar-darken" id="sidebar-darken">
+
+    </div>
     <div class="main" id="main">
       <div class="top" id="top">
         <div class="top-banner">
-          <img src="images/icon-menu.svg" draggable="false" class="hidden btn menu" id="menu" alt="">
+          <img src="images/icon-menu.svg" draggable="false" class="hidden btn menu" id="menu" alt="" onclick="sidebar()">
           <img src="images/logo.svg" draggable="false" class="btn logo" id="logo" alt="" />
           <div class="btn top-btn hover-underline-animation">Collections</div>
           <div class="btn top-btn hover-underline-animation">Men</div>

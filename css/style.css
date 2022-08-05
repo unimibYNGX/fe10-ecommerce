@@ -305,7 +305,8 @@ hr {
 }
 
 .hidden {
-  display: none;
+  /* display: none; */
+  display: none!important;
 }
 
 .lb-card {
@@ -508,7 +509,6 @@ del {
   z-index: 1;
 }
 .cart-card.mobile-cart-card {
-
 }
 
 .cart-title {
@@ -587,7 +587,7 @@ del {
 
   /* box-shadow: hsl(26, 100%, 55%) 0px 50px 100px -20px,
     hsl(26, 100%, 55%) 0px 30px 60px -30px; */
-    /* doesn't work */
+  /* doesn't work */
 }
 
 .item-middle-bottom,
@@ -640,4 +640,52 @@ del {
   right: -4px;
   top: -4px;
   z-index: 1;
+}
+
+.sidebar {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  left: -65%; /*to switch to negative */
+  background-color: var(--white);
+  width: 65%;
+  height: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.div-side-close {
+  /* background-color: orange; */
+  width: auto;
+  height: fit-content;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  padding-left: 50px;
+}
+
+.side-buttons {
+  /* background-color: pink; */
+  padding-top: 20px;
+  /* padding-left: 20px; */
+  width: auto;
+  height: fit-content;
+}
+
+.side-btn {
+  padding-left: 50px;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 20px;
+  width: auto;
+  /* background-color: yellow; */
+}
+
+.sidebar-darken {
+  background-color: black;
+  opacity: 0.75;
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
