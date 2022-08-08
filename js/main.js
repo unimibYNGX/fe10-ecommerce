@@ -181,22 +181,6 @@ function updateAddtocart() {
 }
 updateAddtocart();
 
-// Updates the cart-card section by checking the amount of the products added in the cart
-function updateCart() {
-  var cart = document.getElementById("cart-content");
-  if (cart_elems.length > 0) {
-    cart.innerHTML = "";
-    cart.innerHTML = addProds(cart_elems);
-    show("cart-checkout");
-  } else {
-    cart.innerHTML = "";
-    cart.innerHTML = "<div class='cart-empty'>Your cart is empty</div>";
-    hide("cart-checkout");
-  }
-  document.getElementById("amount").innerHTML = 1;
-}
-updateCart();
-
 // Returns an array of the products grouped by their ID
 function groupProds(arr) {
   const resultArr = arr.reduce(
@@ -251,6 +235,22 @@ function addProds(arr) {
   }
   return code;
 }
+
+// Updates the cart-card section by checking the amount of the products added in the cart
+function updateCart() {
+  var cart = document.getElementById("cart-content");
+  if (cart_elems.length > 0) {
+    cart.innerHTML = "";
+    cart.innerHTML = addProds(cart_elems);
+    show("cart-checkout");
+  } else {
+    cart.innerHTML = "";
+    cart.innerHTML = "<div class='cart-empty'>Your cart is empty</div>";
+    hide("cart-checkout");
+  }
+  document.getElementById("amount").innerHTML = 1;
+}
+updateCart();
 
 class Product {
   constructor(id, title, price) {
@@ -371,6 +371,7 @@ updateCounter();
 function getSidebarState() {
   return !document.getElementById("sidebar").classList.contains("out");
 }
+
 //opens and closes the sidebar
 function sidebar() {
   var isSidebarOpen = getSidebarState();
@@ -401,7 +402,6 @@ function fade(op) {
   console.log("checking...");
   checkFade()
   if (op == "open") {
-    console.log("sbd open");
     if (sbop < 0.7) {
       sbop += 0.025;
       setTimeout(function () {
@@ -412,7 +412,6 @@ function fade(op) {
     sbd.style.opacity = sbop;
   }
   if (op == 'close') {
-    console.log("sbd close");
     if(sbop > 0) {
       sbop -= 0.025;
       setTimeout(function() {
